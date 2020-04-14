@@ -24,7 +24,9 @@ transporter.verify((error, success) => {
     }
 });
 
-router.post('/send', (req, res, next) => {
+
+//aca hice el cambio, en '' estaba '/send'
+router.post('', (req, res, next) => {
     var name = req.body.name
     var email = req.body.email
     var message = req.body.message
@@ -60,3 +62,8 @@ app.use(cors())
 app.use(express.json())
 app.use('/', router)
 app.listen(port)
+
+
+
+// ESTO ES EXPERIMENTO 
+
