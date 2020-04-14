@@ -20,7 +20,7 @@ transporter.verify((error, success) => {
     if (error) {
         console.log(error);
     } else {
-        console.log('El server te está escuchando wacho, manda fruta que te oigo');
+        console.log(`El server te está escuchando wacho, manda fruta que te oigo en el puerto: ${port}`);
     }
 });
 
@@ -32,7 +32,7 @@ router.post('/send', (req, res, next) => {
 
     var mail = {
         from: name,
-        to: 'zigaraneliasnatan@gmail.com',  // Change to email address that you want to receive messages on
+        to: 'zigaraneliasnatan@gmail.com',
         subject: 'New Message from Contact Form',
         text: content
     }
