@@ -6,7 +6,7 @@ const creds = require('./config');
 const path = require('path');
 
 var transport = {
-    host: 'smtp.gmail.com', // Don’t forget to replace with the SMTP host of your provider
+    host: 'smtp.gmail.com',
     port: 587,
     auth: {
         user: creds.USER,
@@ -25,8 +25,9 @@ transporter.verify((error, success) => {
 });
 
 
-//aca hice el cambio, en '' estaba '/send'
-router.post('', (req, res, next) => {
+//SUPONGO QUE ESTE FRAGMENTO DE CODIGO SE ENCARGA DE TRAER LOS DATOS
+// DESDE EL FRONTEND, ES DECIR, SUPONGO QUE ACA IRIA EL LINK DONDE ESTÁ ALOJADO EL FRONT.
+router.post('localhost:3000/send', (req, res, next) => {
     var name = req.body.name
     var email = req.body.email
     var message = req.body.message
@@ -52,8 +53,10 @@ router.post('', (req, res, next) => {
     })
 })
 
+
+// const port = 'https://prueba-mailbox.web.app/';
 const app = express()
-const port = process.env.PORT || 'https://prueba-mailbox.web.app';
+const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'build')));
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
