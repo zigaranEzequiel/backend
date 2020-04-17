@@ -27,7 +27,7 @@ transporter.verify((error, success) => {
 
 //SUPONGO QUE ESTE FRAGMENTO DE CODIGO SE ENCARGA DE TRAER LOS DATOS
 // DESDE EL FRONTEND, ES DECIR, SUPONGO QUE ACA IRIA EL LINK DONDE ESTÁ ALOJADO EL FRONT.
-router.post('localhost:3000/send', (req, res, next) => {
+router.post('', (req, res, next) => {
     var name = req.body.name
     var email = req.body.email
     var message = req.body.message
@@ -57,10 +57,10 @@ router.post('localhost:3000/send', (req, res, next) => {
 // const port = 'https://prueba-mailbox.web.app/';
 const app = express()
 const port = process.env.PORT || 3000;
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.use(express.static(path.join(__dirname, 'build')));
+// app.get('/*', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 app.use(cors())
 app.use(express.json())
 app.use('/', router)
