@@ -35,7 +35,7 @@ router.post('', (req, res, next) => {
 
     var mail = {
         from: name,
-        to: 'zigaran114@gmail.com',
+        to: 'zigaraneliasnatan@gmail.com',
         subject: 'Nuevo Mensaje de tu Curriculum Web',
         text: content
     }
